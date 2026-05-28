@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Direito Tributário — Curso Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   VARIÁVEIS — MODO DIA E NOITE
+═══════════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg:         #F8F9FC;
+  --bg2:        #FFFFFF;
+  --bg3:        #EEF1F8;
+  --text1:      #0F172A;
+  --text2:      #334155;
+  --text3:      #64748B;
+  --border:     #E2E8F0;
+  --azul:       #1E40AF;
+  --azul2:      #3B82F6;
+  --azulc:      #EFF6FF;
+  --verde:      #166534;
+  --verdec:     #F0FDF4;
+  --laranja:    #C2410C;
+  --larc:       #FFF7ED;
+  --roxo:       #6D28D9;
+  --roxoc:      #F5F3FF;
+  --verm:       #991B1B;
+  --vermc:      #FEF2F2;
+  --amar:       #92400E;
+  --amarc:      #FFFBEB;
+  --shadow:     0 4px 24px rgba(15,23,42,.08);
+  --shadow2:    0 1px 4px rgba(15,23,42,.06);
+  --sidebar-bg: #0F172A;
+  --sidebar-tx: rgba(255,255,255,.75);
+  --topbar-bg:  #FFFFFF;
+  --card-bg:    #FFFFFF;
+  --welcome-bg: linear-gradient(135deg,#1E3A8A 0%,#1D4ED8 50%,#2563EB 100%);
+}
+[data-theme="dark"] {
+  --bg:         #0A0F1E;
+  --bg2:        #111827;
+  --bg3:        #1F2937;
+  --text1:      #F1F5F9;
+  --text2:      #CBD5E1;
+  --text3:      #94A3B8;
+  --border:     #1E293B;
+  --azul:       #60A5FA;
+  --azul2:      #93C5FD;
+  --azulc:      #172554;
+  --verde:      #4ADE80;
+  --verdec:     #052E16;
+  --laranja:    #FB923C;
+  --larc:       #2C1810;
+  --roxo:       #A78BFA;
+  --roxoc:      #1E1B4B;
+  --verm:       #FCA5A5;
+  --vermc:      #450A0A;
+  --amar:       #FDE047;
+  --amarc:      #1C1400;
+  --shadow:     0 4px 24px rgba(0,0,0,.4);
+  --shadow2:    0 1px 4px rgba(0,0,0,.3);
+  --sidebar-bg: #070C19;
+  --sidebar-tx: rgba(255,255,255,.65);
+  --topbar-bg:  #111827;
+  --card-bg:    #111827;
+  --welcome-bg: linear-gradient(135deg,#0F172A 0%,#1E3A8A 50%,#1E40AF 100%);
+}
+
+/* ═══════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);line-height:1.7;transition:background .3s,color .3s;font-size:15px}
+
+/* ═══════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════ */
+.shell{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+@media(max-width:880px){.shell{grid-template-columns:1fr}.sidebar{display:none!important}}
+
+/* ═══════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════ */
+.sidebar{background:var(--sidebar-bg);position:sticky;top:0;height:100vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent;display:flex;flex-direction:column}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:4px}
+.side-brand{padding:24px 20px 18px;border-bottom:1px solid rgba(255,255,255,.07)}
+.side-brand .icon{font-size:1.8rem;margin-bottom:8px;display:block}
+.side-brand h1{font-family:'Lora',serif;font-size:1.05rem;color:#fff;font-weight:700;line-height:1.3}
+.side-brand p{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:3px;font-family:'JetBrains Mono',monospace}
+.side-nav{padding:14px 0 20px;flex:1}
+.nav-section{margin-bottom:4px}
+.nav-label{font-size:.62rem;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.3);text-transform:uppercase;padding:10px 20px 4px}
+.nav-a{display:flex;align-items:center;gap:9px;padding:7px 20px;font-size:.8rem;color:var(--sidebar-tx);text-decoration:none;cursor:pointer;border-left:3px solid transparent;transition:all .15s}
+.nav-a:hover,.nav-a.on{background:rgba(255,255,255,.06);color:#fff;border-left-color:#FBBF24}
+.nav-a .ic{font-size:.9rem;min-width:18px;text-align:center}
+.side-footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,.07);font-size:.7rem;color:rgba(255,255,255,.3);text-align:center}
+.side-footer strong{color:rgba(255,255,255,.5)}
+
+/* ═══════════════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════════════ */
+.topbar{background:var(--topbar-bg);border-bottom:1px solid var(--border);padding:12px 36px;position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow2);transition:background .3s}
+.topbar-left{display:flex;align-items:center;gap:14px}
+.breadcrumb{font-size:.78rem;color:var(--text3)}
+.breadcrumb strong{color:var(--azul)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.btn-theme{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:.82rem;padding:6px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;font-family:'Inter',sans-serif}
+.btn-theme:hover{background:var(--azulc);color:var(--azul);border-color:var(--azul2)}
+.progress-wrap{width:120px;height:4px;background:var(--border);border-radius:4px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--azul2),#8B5CF6);border-radius:4px;transition:width .4s}
+
+/* ═══════════════════════════════════════════════
+   MAIN
+═══════════════════════════════════════════════ */
+.main{overflow:hidden;min-width:0}
+.content{padding:32px 36px 80px;max-width:860px}
+@media(max-width:700px){.content{padding:20px 16px 60px}.topbar{padding:12px 16px}}
+
+/* ═══════════════════════════════════════════════
+   WELCOME MODAL
+═══════════════════════════════════════════════ */
+.welcome-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+.welcome-box{background:var(--bg2);border-radius:20px;padding:44px 48px;max-width:500px;width:90%;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.3);animation:pop .4s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+.welcome-emoji{font-size:3.5rem;margin-bottom:16px;display:block}
+.welcome-box h2{font-family:'Lora',serif;font-size:1.7rem;color:var(--text1);margin-bottom:8px}
+.welcome-box p{color:var(--text3);font-size:.92rem;line-height:1.65;margin-bottom:6px}
+.welcome-box .aluno{color:var(--azul);font-weight:700;font-size:1rem;margin:12px 0}
+.welcome-box .luck{font-size:1.2rem;margin:14px 0 20px}
+.btn-start{background:linear-gradient(135deg,#1E40AF,#3B82F6);color:#fff;border:none;padding:13px 36px;border-radius:30px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:transform .18s,box-shadow .18s;box-shadow:0 6px 20px rgba(59,130,246,.35)}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(59,130,246,.45)}
+.welcome-credit{font-size:.72rem;color:var(--text3);margin-top:16px}
+.welcome-credit strong{color:var(--azul2)}
+
+/* ═══════════════════════════════════════════════
+   HERO / CAPA
+═══════════════════════════════════════════════ */
+.hero{background:var(--welcome-bg);border-radius:18px;padding:44px 44px 36px;color:#fff;margin-bottom:44px;position:relative;overflow:hidden}
+.hero::before{content:'⚖️';position:absolute;right:-10px;top:-20px;font-size:180px;opacity:.06;line-height:1;pointer-events:none}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 13px;border-radius:20px;margin-bottom:16px;font-family:'JetBrains Mono',monospace}
+.hero h1{font-family:'Lora',serif;font-size:2.4rem;font-weight:700;line-height:1.15;margin-bottom:10px}
+.hero p{color:rgba(255,255,255,.8);font-size:.9rem;max-width:480px;line-height:1.65}
+.hero .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);font-size:.72rem;padding:5px 12px;border-radius:8px;font-weight:500}
+.hero .credits{margin-top:22px;font-size:.76rem;color:rgba(255,255,255,.45);border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+.hero .credits strong{color:rgba(255,255,255,.7)}
+
+/* ═══════════════════════════════════════════════
+   HEADINGS
+═══════════════════════════════════════════════ */
+.mod-header{border-radius:14px;padding:24px 28px;margin-bottom:24px;color:#fff;position:relative;overflow:hidden}
+.mod-header::after{content:'';position:absolute;right:-30px;bottom:-30px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.05);pointer-events:none}
+.mod-num{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:600;letter-spacing:.12em;opacity:.7;margin-bottom:6px}
+.mod-header h2{font-family:'Lora',serif;font-size:1.7rem;font-weight:700;line-height:1.2}
+.mod-header p{opacity:.8;font-size:.86rem;margin-top:6px;max-width:480px}
+.bg-azul{background:linear-gradient(135deg,#1E3A8A,#2563EB)}
+.bg-verde{background:linear-gradient(135deg,#14532D,#16A34A)}
+.bg-roxo{background:linear-gradient(135deg,#3B0764,#7C3AED)}
+.bg-laranja{background:linear-gradient(135deg,#7C2D12,#EA580C)}
+.bg-teal{background:linear-gradient(135deg,#134E4A,#0D9488)}
+.bg-rose{background:linear-gradient(135deg,#881337,#E11D48)}
+.bg-slate{background:linear-gradient(135deg,#0F172A,#334155)}
+.bg-amber{background:linear-gradient(135deg,#451A03,#D97706)}
+
+.sec{font-family:'Lora',serif;font-size:1.12rem;color:var(--text1);margin:28px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
+.txt{color:var(--text2);margin-bottom:14px;font-size:.93rem;line-height:1.75}
+.txt strong{color:var(--text1);font-weight:600}
+.txt em{color:var(--azul);font-style:italic}
+
+/* ═══════════════════════════════════════════════
+   BOXES
+═══════════════════════════════════════════════ */
+.box{border-radius:10px;padding:18px 22px;margin:16px 0;font-size:.88rem}
+.bx-title{font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+.bx-az{background:var(--azulc);border-left:4px solid var(--azul2)}.bx-az .bx-title{color:var(--azul)}
+.bx-vd{background:var(--verdec);border-left:4px solid var(--verde)}.bx-vd .bx-title{color:var(--verde)}
+.bx-or{background:var(--larc);border-left:4px solid var(--laranja)}.bx-or .bx-title{color:var(--laranja)}
+.bx-rm{background:var(--vermc);border-left:4px solid var(--verm)}.bx-rm .bx-title{color:var(--verm)}
+.bx-rx{background:var(--roxoc);border-left:4px solid var(--roxo)}.bx-rx .bx-title{color:var(--roxo)}
+.bx-am{background:var(--amarc);border-left:4px solid var(--amar)}.bx-am .bx-title{color:var(--amar)}
+.box p,.box li{color:var(--text2);line-height:1.65}
+.box ul,.box ol{padding-left:18px;margin-top:6px}
+.box li{margin-bottom:4px}
+
+/* ═══════════════════════════════════════════════
+   ALERTA / DESTAQUE
+═══════════════════════════════════════════════ */
+.alert{border-radius:10px;padding:14px 18px;margin:14px 0;font-size:.86rem;display:flex;gap:10px;align-items:flex-start}
+.alert-icon{font-size:1.1rem;margin-top:1px;flex-shrink:0}
+.alert p{color:var(--text2);line-height:1.6}
+.alert strong{color:var(--text1)}
+.a-prova{background:linear-gradient(90deg,#FFFBEB,var(--bg2));border:1.5px solid #FCD34D}
+.a-peg{background:linear-gradient(90deg,var(--vermc),var(--bg2));border:1.5px solid var(--verm)}
+.a-dica{background:linear-gradient(90deg,var(--verdec),var(--bg2));border:1.5px solid var(--verde)}
+.a-art{background:linear-gradient(90deg,var(--azulc),var(--bg2));border:1.5px solid var(--azul2)}
+
+/* ═══════════════════════════════════════════════
+   TABELA
+═══════════════════════════════════════════════ */
+.tbl-wrap{overflow-x:auto;margin:16px 0;border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:.83rem;background:var(--card-bg)}
+thead tr{background:linear-gradient(135deg,#1E3A8A,#1D4ED8)}
+th{padding:11px 14px;text-align:left;font-weight:600;font-size:.75rem;letter-spacing:.04em;color:#fff}
+td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text2)}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--bg3)}
+tr:hover td{background:var(--azulc);color:var(--text1)}
+
+/* ═══════════════════════════════════════════════
+   MACETE
+═══════════════════════════════════════════════ */
+.macete{background:var(--amarc);border:1.5px dashed #F59E0B;border-radius:10px;padding:16px 20px;margin:14px 0;font-size:.87rem}
+.mac-title{font-weight:700;color:var(--amar);margin-bottom:6px;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+.macete p,.macete li{color:var(--text2)}
+
+/* ═══════════════════════════════════════════════
+   FLASHCARDS
+═══════════════════════════════════════════════ */
+.flashgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+@media(max-width:600px){.flashgrid{grid-template-columns:1fr}}
+.flash{border-radius:10px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow2);border:1px solid var(--border);transition:transform .18s,box-shadow .18s}
+.flash:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.f-front{background:var(--azulc);padding:14px 16px;border-left:4px solid var(--azul2)}
+.f-front .lbl{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--azul);margin-bottom:5px}
+.f-front p{font-size:.82rem;color:var(--text1);font-weight:500}
+.f-back{background:var(--verdec);padding:14px 16px;border-left:4px solid var(--verde);display:none}
+.f-back .lbl{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--verde);margin-bottom:5px}
+.f-back p{font-size:.81rem;color:var(--text2)}
+.flash.open .f-front{display:none}
+.flash.open .f-back{display:block}
+.flash-hint{font-size:.73rem;color:var(--text3);margin-bottom:8px}
+
+/* ═══════════════════════════════════════════════
+   QUESTÕES
+═══════════════════════════════════════════════ */
+.questao{background:var(--card-bg);border-radius:12px;border:1px solid var(--border);padding:22px 26px;margin:14px 0;box-shadow:var(--shadow2)}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:600;color:var(--azul2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em}
+.q-banca{display:inline-block;background:var(--azulc);color:var(--azul);font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:6px;margin-left:8px;vertical-align:middle;letter-spacing:.04em}
+.q-enunc{font-size:.9rem;color:var(--text1);margin-bottom:12px;font-weight:500;line-height:1.65}
+.q-alt{display:block;padding:8px 12px;border-radius:7px;font-size:.84rem;color:var(--text2);margin:4px 0;cursor:pointer;transition:all .14s;border:1.5px solid transparent}
+.q-alt:hover{background:var(--azulc);border-color:var(--azul2)}
+.q-alt.correta{background:var(--verdec);border-color:var(--verde);color:var(--verde);font-weight:600}
+.q-alt.errada{background:var(--vermc);border-color:var(--verm);color:var(--verm)}
+.q-gab{display:none;margin-top:12px;background:var(--verdec);border-left:4px solid var(--verde);border-radius:8px;padding:12px 16px;font-size:.83rem;color:var(--text2);line-height:1.65}
+.q-gab.show{display:block}
+.q-gab strong{color:var(--verde)}
+
+/* ═══════════════════════════════════════════════
+   CASO PRÁTICO
+═══════════════════════════════════════════════ */
+.caso{background:var(--bg3);border-radius:12px;border:1px solid var(--border);padding:20px 24px;margin:16px 0}
+.caso-title{font-weight:700;color:var(--text1);font-size:.9rem;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.caso-body{font-size:.86rem;color:var(--text2);line-height:1.7}
+.caso-resp{margin-top:12px;padding:12px 16px;background:var(--verdec);border-radius:8px;font-size:.85rem;color:var(--text2);border-left:3px solid var(--verde)}
+
+/* ═══════════════════════════════════════════════
+   MAPA MENTAL
+═══════════════════════════════════════════════ */
+.mapa{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--text2);line-height:2}
+.mapa .raiz{color:var(--azul);font-weight:700;font-size:.88rem}
+.mapa .l1{padding-left:20px;color:var(--text1)}
+.mapa .l2{padding-left:40px;color:var(--text2)}
+.mapa .l3{padding-left:60px;color:var(--text3)}
+.mapa .destaque{color:var(--verm);font-weight:600}
+
+/* ═══════════════════════════════════════════════
+   RESUMÃO FINAL
+═══════════════════════════════════════════════ */
+.resumao{background:var(--welcome-bg);border-radius:16px;padding:32px 36px;color:#fff;margin:32px 0}
+.resumao h2{font-family:'Lora',serif;font-size:1.5rem;margin-bottom:18px}
+.resumao li{margin-bottom:8px;font-size:.88rem;opacity:.9;padding-left:4px;list-style:none}
+.resumao li::before{content:'✅ ';margin-right:2px}
+
+/* ═══════════════════════════════════════════════
+   SEPARADOR
+═══════════════════════════════════════════════ */
+.sep{height:1px;background:var(--border);margin:40px 0}
+
+/* ═══════════════════════════════════════════════
+   BADGES
+═══════════════════════════════════════════════ */
+.bdg{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:6px;vertical-align:middle;margin-left:6px}
+.bdg-prova{background:var(--amarc);color:var(--amar)}
+.bdg-peg{background:var(--vermc);color:var(--verm)}
+.bdg-art{background:var(--azulc);color:var(--azul)}
+
+/* ═══════════════════════════════════════════════
+   SCROLL TOP
+═══════════════════════════════════════════════ */
+.scroll-top{position:fixed;bottom:24px;right:24px;background:var(--azul);color:#fff;border:none;width:42px;height:42px;border-radius:50%;font-size:1rem;cursor:pointer;box-shadow:0 4px 16px rgba(30,64,175,.35);z-index:90;display:flex;align-items:center;justify-content:center;transition:background .18s,transform .18s}
+.scroll-top:hover{background:var(--azul2);transform:translateY(-2px)}
+
+/* ═══════════════════════════════════════════════
+   ANIMAÇÕES
+═══════════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.modulo{animation:fadeUp .35s ease both}
+</style>
+</head>
+<body>
+
+<!-- ═══ MODAL BOAS-VINDAS ═══ -->
+<div class="welcome-overlay" id="welcome">
+  <div class="welcome-box">
+    <span class="welcome-emoji">⚖️</span>
+    <h2>Bem-vindo(a) ao Curso!</h2>
+    <p>Você está prestes a dominar dois dos temas mais cobrados em concursos e provas de Direito Tributário:</p>
+    <div style="margin:14px 0;padding:12px;background:var(--azulc);border-radius:10px;font-size:.84rem;color:var(--text2)">
+      📚 <strong style="color:var(--azul)">Unidade III</strong> — Fontes do Direito Tributário<br>
+      📚 <strong style="color:var(--azul)">Unidade IV</strong> — Limitações ao Poder de Tributar
+    </div>
+    <p class="aluno">Prepare-se para uma aula didática e completa! 🎯</p>
+    <div class="luck">🍀 <strong>Boa sorte nos seus estudos!</strong> Você vai arrasar! 🚀</div>
+    <button class="btn-start" onclick="document.getElementById('welcome').style.display='none'">
+      Começar Agora →
+    </button>
+    <div class="welcome-credit">Material criado por <strong>Andrews Curriel</strong> • Curso Premium de Direito Tributário</div>
+  </div>
+</div>
+
+<div class="shell">
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar">
+  <div class="side-brand">
+    <span class="icon">⚖️</span>
+    <h1>Direito Tributário</h1>
+    <p>Curso Premium · Andrews Curriel</p>
+  </div>
+  <nav class="side-nav">
+    <div class="nav-section">
+      <div class="nav-label">Unidade III</div>
+      <a class="nav-a" onclick="ir('u3-inicio')"><span class="ic">📌</span>Visão Geral</a>
+      <a class="nav-a" onclick="ir('u3-conceito')"><span class="ic">📖</span>Legislação Tributária</a>
+      <a class="nav-a" onclick="ir('u3-lc')"><span class="ic">⚡</span>Lei Complementar</a>
+      <a class="nav-a" onclick="ir('u3-lo')"><span class="ic">📋</span>Lei Ordinária</a>
+      <a class="nav-a" onclick="ir('u3-ld')"><span class="ic">🔄</span>Lei Delegada</a>
+      <a class="nav-a" onclick="ir('u3-tratados')"><span class="ic">🌐</span>Tratados Internacionais</a>
+      <a class="nav-a" onclick="ir('u3-mp')"><span class="ic">⚠️</span>Medidas Provisórias</a>
+      <a class="nav-a" onclick="ir('u3-tabela')"><span class="ic">📊</span>Tabela Comparativa</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Unidade IV</div>
+      <a class="nav-a" onclick="ir('u4-inicio')"><span class="ic">🚧</span>Limitações ao Poder</a>
+      <a class="nav-a" onclick="ir('u4-legalidade')"><span class="ic">⚖️</span>Princípio da Legalidade</a>
+      <a class="nav-a" onclick="ir('u4-anterioridade')"><span class="ic">📅</span>Princípio da Anterioridade</a>
+      <a class="nav-a" onclick="ir('u4-noventena')"><span class="ic">📆</span>Noventena (90 dias)</a>
+      <a class="nav-a" onclick="ir('u4-trafego')"><span class="ic">🛣️</span>Liberdade de Tráfego</a>
+      <a class="nav-a" onclick="ir('u4-imunidade')"><span class="ic">🛡️</span>Imunidades Tributárias</a>
+      <a class="nav-a" onclick="ir('u4-tabela')"><span class="ic">📊</span>Tabelas e Exceções</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Revisão Final</div>
+      <a class="nav-a" onclick="ir('questoes')"><span class="ic">🏆</span>Questões Comentadas</a>
+      <a class="nav-a" onclick="ir('casos')"><span class="ic">💼</span>Casos Práticos</a>
+      <a class="nav-a" onclick="ir('resumao')"><span class="ic">⚡</span>Resumão Final</a>
+      <a class="nav-a" onclick="ir('flashcards')"><span class="ic">🗂️</span>Flashcards</a>
+    </div>
+  </nav>
+  <div class="side-footer">
+    Criado por <strong>Andrews Curriel</strong><br>
+    Direito Tributário — Curso Premium
+  </div>
+</aside>
+
+<!-- ═══ CONTEÚDO ═══ -->
+<main class="main">
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="breadcrumb">⚖️ <strong>Direito Tributário</strong> — Unidades III e IV</span>
+    </div>
+    <div class="topbar-right">
+      <div class="progress-wrap" title="Progresso de leitura">
+        <div class="progress-bar" id="pgbar" style="width:0%"></div>
+      </div>
+      <button class="btn-theme" onclick="toggleTheme()" id="themeBtn">
+        🌙 Modo Noite
+      </button>
+    </div>
+  </div>
+
+  <div class="content">
+
+  <!-- HERO -->
+  <div class="hero" id="topo">
+    <div class="tag">Unidades III e IV · Curso Premium</div>
+    <h1>Direito Tributário</h1>
+    <p>Fontes do Direito Tributário e Limitações Constitucionais ao Poder de Tributar — tudo o que cai em prova, explicado do zero.</p>
+    <div class="chips">
+      <span class="chip">📘 Fontes</span>
+      <span class="chip">⚖️ Princípios</span>
+      <span class="chip">🛡️ Imunidades</span>
+      <span class="chip">🏆 Questões</span>
+      <span class="chip">💼 Casos Práticos</span>
+    </div>
+    <div class="credits">
+      Criado por <strong>Andrews Curriel</strong> · baseado nas Unidades III e IV de Direito Tributário
+    </div>
+  </div>
+
+<!-- ══════════════════════════════════════════════
+   UNIDADE III — FONTES DO DIREITO TRIBUTÁRIO
+══════════════════════════════════════════════ -->
+<div class="modulo" id="u3-inicio">
+  <div class="mod-header bg-azul">
+    <div class="mod-num">Unidade III</div>
+    <h2>📚 Fontes do Direito Tributário</h2>
+    <p>De onde vêm as normas tributárias? Entenda a hierarquia e as espécies normativas.</p>
+  </div>
+
+  <h3 class="sec">🎯 Por que isso é importante?</h3>
+  <p class="txt">Imagine o Direito Tributário como um prédio. A <strong>Constituição Federal</strong> é a fundação — tudo tem que estar sobre ela. As <strong>Leis Complementares</strong>, as <strong>Leis Ordinárias</strong>, os <strong>Decretos</strong>, as <strong>Portarias</strong> são os andares que se apoiam nessa fundação. Essa hierarquia é chamada de <em>fontes do direito tributário</em>.</p>
+
+  <div class="alert a-prova">
+    <span class="alert-icon">🎯</span>
+    <p><strong>ATENÇÃO DE PROVA:</strong> As bancas adoram cobrar a diferença entre <strong>fontes primárias</strong> (leis, CF, etc.) e <strong>fontes secundárias</strong> (decretos, portarias, etc.), além das matérias reservadas exclusivamente a Lei Complementar.</p>
+  </div>
+</div>
+
+<div class="modulo" id="u3-conceito">
+  <h3 class="sec">📖 Legislação Tributária — Art. 96 do CTN</h3>
+  <p class="txt">O CTN usa o termo <strong>"legislação tributária"</strong> em sentido <strong>amplo</strong>. Não é só a "lei" aprovada pelo Congresso. É muito mais do que isso:</p>
+
+  <div class="box bx-az">
+    <div class="bx-title">📖 Art. 96 do CTN — Definição</div>
+    <p>A expressão <strong>"legislação tributária"</strong> compreende as leis, os tratados e convenções internacionais, os decretos e as normas complementares que <strong>versem, no todo ou em parte, sobre tributos e relações jurídicas a eles pertinentes</strong>.</p>
+  </div>
+
+  <p class="txt">Ou seja: a legislação tributária não se restringe à lei formal. Inclui também:</p>
+  <div class="box bx-vd">
+    <div class="bx-title">✅ Fontes da Legislação Tributária</div>
+    <ul>
+      <li>🏛️ <strong>Constituição Federal</strong> — base máxima (fundação do sistema)</li>
+      <li>📜 <strong>Emendas Constitucionais</strong> — modificam a Constituição</li>
+      <li>⚡ <strong>Leis Complementares</strong> — aprovação por maioria absoluta</li>
+      <li>📋 <strong>Leis Ordinárias</strong> — regra geral para criação de tributos</li>
+      <li>🔄 <strong>Leis Delegadas</strong> — campo de atuação muito restrito</li>
+      <li>⚠️ <strong>Medidas Provisórias</strong> — relevância e urgência (com limites)</li>
+      <li>🌐 <strong>Tratados Internacionais</strong> — art. 98 do CTN</li>
+      <li>📌 <strong>Decretos Legislativos e Resoluções</strong></li>
+      <li>🗒️ <strong>Normas Complementares</strong> (atos, instruções normativas, portarias)</li>
+    </ul>
+  </div>
+
+  <div class="alert a-peg">
+    <span class="alert-icon">⚠️</span>
+    <p><strong>PEGADINHA:</strong> O art. 96 do CTN amplia o conceito de "legislação" — mas <strong>instituir tributo</strong> exige lei em sentido <em>estrito</em> (processo legislativo regular). Isso é o princípio da legalidade (art. 150, I, CF). Não confunda!</p>
+  </div>
+
+  <h3 class="sec">🏛️ A Constituição Federal como Ponto de Partida</h3>
+  <p class="txt">A Constituição Federal de 1988 é o <strong>ápice do Sistema Tributário Nacional</strong>. É ela que:</p>
+  <ul style="color:var(--text2);font-size:.9rem;padding-left:20px;margin-bottom:16px">
+    <li style="margin-bottom:6px">Distribui a <strong>competência tributária</strong> entre União, Estados, DF e Municípios</li>
+    <li style="margin-bottom:6px">Estabelece os <strong>princípios tributários</strong> (legalidade, anterioridade, etc.)</li>
+    <li style="margin-bottom:6px">Define as <strong>imunidades tributárias</strong></li>
+    <li style="margin-bottom:6px">Limita o poder de tributar de todos os entes federativos</li>
+  </ul>
+
+  <h3 class="sec">📝 Emenda Constitucional — Quem pode propor uma PEC?</h3>
+  <div class="box bx-az">
+    <div class="bx-title">📖 Art. 60 da CF/88 — Legitimados para propor PEC</div>
+    <ul>
+      <li>🏛️ <strong>1/3 dos membros</strong> da Câmara dos Deputados <em>ou</em> do Senado Federal</li>
+      <li>👔 <strong>Presidente da República</strong></li>
+      <li>🗳️ <strong>Mais da metade das Assembleias Legislativas</strong>, cada uma por maioria relativa</li>
+    </ul>
+  </div>
+  <p class="txt">Isso significa que os próprios parlamentares (deputados e senadores) e o Presidente podem iniciar reformas no sistema tributário constitucional. Por isso, toda grande reforma tributária (como a EC 132/2023 — Reforma Tributária) passa por emenda constitucional.</p>
+</div>
+
+<div class="modulo" id="u3-lc">
+  <h3 class="sec">⚡ Lei Complementar — A Mais Importante depois da CF</h3>
+  <p class="txt">A Lei Complementar é como se fosse um <em>"meio-termo"</em> entre a Constituição e a Lei Ordinária. Ela <strong>complementa</strong> a CF em matérias que o constituinte entendeu como especialmente relevantes.</p>
+
+  <div class="box bx-or">
+    <div class="bx-title">🔑 Características da Lei Complementar</div>
+    <ul>
+      <li>📊 Aprovada por <strong>maioria absoluta</strong> dos membros de cada Casa (art. 69, CF)</li>
+      <li>🎯 Matérias <strong>expressamente determinadas</strong> pela Constituição</li>
+      <li>🔒 <strong>Mais difícil de aprovar</strong> que a lei ordinária (maioria absoluta > maioria simples)</li>
+      <li>📋 No campo tributário: estabelece <strong>normas gerais</strong>, resolve conflitos de competência, regula limitações ao poder de tributar</li>
+    </ul>
+  </div>
+
+  <h3 class="sec">📌 O CTN: Lei Ordinária com Status de Lei Complementar</h3>
+  <p class="txt">O Código Tributário Nacional (CTN) foi criado em 1966 pela <strong>Lei Ordinária 5.172</strong>, antes da CF/88. Porém, com a Constituição de 1988, as matérias nele contidas passaram a ser reservadas à Lei Complementar. Resultado:</p>
+
+  <div class="alert a-art">
+    <span class="alert-icon">⚖️</span>
+    <p><strong>ARTIGO FUNDAMENTAL:</strong> O CTN é <em>formalmente</em> lei ordinária, mas <em>materialmente</em> tem força de lei complementar. Por isso, <strong>só pode ser modificado por Lei Complementar</strong>. Uma simples lei ordinária não pode alterá-lo!</p>
+  </div>
+
+  <div class="alert a-peg">
+    <span class="alert-icon">⚠️</span>
+    <p><strong>PEGADINHA CLÁSSICA:</strong> "O CTN é uma lei complementar." — <strong>FALSO</strong> formalmente. É lei ordinária recepcionada com status de LC. A banca pode dizer que "o CTN só pode ser alterado por lei complementar" — isso é <strong>VERDADEIRO</strong>!</p>
+  </div>
+</div>
+
+<div class="modulo" id="u3-lo">
+  <h3 class="sec">📋 Lei Ordinária — A Regra Geral para Tributos</h3>
+  <p class="txt">Para a maioria dos tributos, a <strong>Lei Ordinária</strong> é o instrumento adequado. É aprovada por maioria simples (maioria dos presentes, desde que haja quórum). Objetivamente, toda lei ordinária que institui tributo deve:</p>
+
+  <div class="box bx-vd">
+    <div class="bx-title">✅ Conteúdo Mínimo da Lei Ordinária Tributária</div>
+    <ol>
+      <li><strong>Definir a alíquota</strong> do tributo</li>
+      <li><strong>Definir a base de cálculo</strong></li>
+      <li><strong>Definir as penalidades</strong> para ações ou omissões contrárias</li>
+      <li><strong>Definir as hipóteses de exclusão, suspensão e extinção</strong> de créditos tributários</li>
+      <li><strong>Definir as obrigações acessórias</strong></li>
+    </ol>
+  </div>
+
+  <div class="macete">
+    <div class="mac-title">💡 Macete — "A-BP-ESO"</div>
+    <p><strong>A</strong>líquota · <strong>B</strong>ase de cálculo · <strong>P</strong>enalidades · <strong>E</strong>xclusão/Suspensão/Extinção · <strong>O</strong>brigações acessórias</p>
+  </div>
+</div>
+
+<div class="modulo" id="u3-ld">
+  <h3 class="sec">🔄 Lei Delegada — Campo Muito Restrito</h3>
+  <p class="txt">A <strong>Lei Delegada</strong> é um ato do Poder Executivo (Presidente, Governador ou Prefeito), autorizado pelo Legislativo por meio de resolução. Seu campo de atuação é muito restrito em matéria tributária.</p>
+
+  <div class="box bx-rm">
+    <div class="bx-title">🚫 Leis Delegadas NÃO podem tratar de</div>
+    <ul>
+      <li>❌ Matérias reservadas à <strong>Lei Complementar</strong></li>
+      <li>❌ <strong>Empréstimos Compulsórios</strong></li>
+      <li>❌ <strong>Impostos de competência residual da União</strong> (art. 154, I, CF)</li>
+      <li>❌ <strong>Normas gerais de Direito Tributário</strong></li>
+    </ul>
+  </div>
+
+  <div class="alert a-dica">
+    <span class="alert-icon">💡</span>
+    <p>Na prática tributária, as leis delegadas têm <strong>uso extremamente raro</strong>. As bancas cobram principalmente seus limites: o que ela <em>NÃO pode</em> fazer é a questão mais frequente!</p>
+  </div>
+</div>
+
+<div class="modulo" id="u3-tratados">
+  <h3 class="sec">🌐 Tratados Internacionais — Art. 98 do CTN</h3>
+  <p class="txt">O Brasil pode firmar acordos com outros países (tratados e convenções internacionais) sobre matéria tributária. Mas existe uma controvérsia importante entre o CTN e o STF:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Posição</th><th>Entendimento</th></tr></thead>
+      <tbody>
+        <tr><td><strong>CTN (art. 98)</strong></td><td>Os tratados internacionais <strong>revogam ou modificam</strong> a legislação tributária interna, anterior ou posterior</td></tr>
+        <tr><td><strong>STF</strong></td><td>O Parlamento tem autonomia para editar lei interna posterior que <strong>contrarie o tratado</strong> (monismo moderado). O prejudicado pode exigir indenização da União.</td></tr>
+        <tr><td><strong>Hugo de Brito Machado</strong></td><td>Se o Congresso ratificou o tratado, <strong>não pode</strong> aprovar lei interna contrária. (Princípio da Moralidade)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-prova">
+    <span class="alert-icon">🎯</span>
+    <p><strong>ATENÇÃO DE PROVA:</strong> O art. 98 do CTN diz que tratados <em>revogam</em> a lei interna. Mas o STF entende que o Parlamento <em>pode</em> legislar em contrário. Em provas de concurso, siga o <strong>entendimento do STF</strong> salvo se a questão perguntar expressamente "segundo o CTN".</p>
+  </div>
+</div>
+
+<div class="modulo" id="u3-mp">
+  <h3 class="sec">⚠️ Medidas Provisórias — Relevância e Urgência</h3>
+  <p class="txt">A <strong>Medida Provisória (MP)</strong> é um ato do Poder Executivo com força de lei, editado em casos de <em>relevância</em> e <em>urgência</em>. É regulada pelo art. 62 da CF, com redação dada pela EC nº 32/2001.</p>
+
+  <div class="box bx-az">
+    <div class="bx-title">📌 Como funciona a MP?</div>
+    <ul>
+      <li>Entra em vigor na data da edição (não precisa esperar publicação)</li>
+      <li>Deve ser submetida ao Congresso Nacional <strong>imediatamente</strong></li>
+      <li>Prazo de vigência: <strong>60 dias</strong>, prorrogável por mais 60 (total: 120 dias)</li>
+      <li>Se não convertida em lei, perde a eficácia desde sua edição</li>
+    </ul>
+  </div>
+
+  <div class="box bx-rm">
+    <div class="bx-title">🚫 MP NÃO pode tratar de</div>
+    <ul>
+      <li>❌ Matérias reservadas a <strong>Lei Complementar</strong> (ex: normas gerais de Dir. Tributário)</li>
+      <li>❌ Matérias já regulamentadas em <strong>projeto de lei aprovado</strong> pelo CN aguardando sanção</li>
+    </ul>
+  </div>
+
+  <div class="alert a-dica">
+    <span class="alert-icon">💡</span>
+    <p><strong>Efeito prático:</strong> A MP agiliza o processo legislativo — ela já entra em vigor, mas o Congresso ainda a analisa. No campo tributário, serve principalmente para alterar alíquotas de impostos extrafiscais (II, IE, IPI, IOF) e iniciar projetos de lei tributária de urgência.</p>
+  </div>
+
+  <div class="alert a-prova">
+    <span class="alert-icon">🎯</span>
+    <p><strong>ATENÇÃO — Contribuições Previdenciárias:</strong> Por força do <strong>art. 195, § 6º da CF</strong>, as contribuições previdenciárias devem respeitar a <strong>anterioridade nonagesimal (90 dias)</strong>. MP que institui/majora contribuição previdenciária só produz efeito 90 dias após publicada.</p>
+  </div>
+</div>
+
+<div class="modulo" id="u3-tabela">
+  <h3 class="sec">📊 Tabela Comparativa — Espécies Normativas</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Espécie</th><th>Quórum</th><th>Pode instituir tributo?</th><th>Limitações tributárias</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Emenda Const.</strong></td><td>3/5 em 2 turnos (cada Casa)</td><td>Sim (modifica CF)</td><td>Não pode abolir direitos fundamentais</td></tr>
+        <tr><td><strong>Lei Complementar</strong></td><td>Maioria absoluta</td><td>Sim (casos específicos)</td><td>Só matérias reservadas pela CF</td></tr>
+        <tr><td><strong>Lei Ordinária</strong></td><td>Maioria simples</td><td>Sim (regra geral)</td><td>Não pode tratar de matéria de LC</td></tr>
+        <tr><td><strong>Lei Delegada</strong></td><td>Autorização do CN</td><td>Muito restrito</td><td>Não trata de LC, EConf, comp. residual</td></tr>
+        <tr><td><strong>Medida Provisória</strong></td><td>Ato unilateral do Exec.</td><td>Sim (c/ limitações)</td><td>Não pode tratar de LC; respeita anterioridade</td></tr>
+        <tr><td><strong>Tratado Internacional</strong></td><td>Ratificação CN</td><td>Isenção heterônoma</td><td>STF: lei posterior pode prevalecer</td></tr>
+        <tr><td><strong>Decreto</strong></td><td>Ato do Exec.</td><td>Não institui; só regulamenta</td><td>Pode alterar alíquotas (II,IE,IPI,IOF)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════════════════════════════════════════════
+   UNIDADE IV — LIMITAÇÕES AO PODER DE TRIBUTAR
+══════════════════════════════════════════════ -->
+<div class="modulo" id="u4-inicio">
+  <div class="mod-header bg-roxo">
+    <div class="mod-num">Unidade IV</div>
+    <h2>🚧 Limitações ao Poder de Tributar</h2>
+    <p>A CF como escudo do contribuinte — princípios que limitam o Estado na criação de tributos.</p>
+  </div>
+
+  <h3 class="sec">🎯 Visão Geral</h3>
+  <p class="txt">O Estado tem o poder de criar e cobrar tributos (poder de tributar). Mas esse poder não é absoluto — a <strong>Constituição Federal</strong> impõe limitações severas para proteger o cidadão. Essas limitações se expressam através de:</p>
+
+  <div class="box bx-rx">
+    <div class="bx-title">⚖️ Espécies de Limitações</div>
+    <ul>
+      <li>📌 <strong>Princípios Constitucionais Tributários</strong> — legalidade, anterioridade, isonomia, etc.</li>
+      <li>🛡️ <strong>Imunidades Tributárias</strong> — vedações absolutas da CF</li>
+      <li>📋 <strong>Distribuição de Competências</strong> — cada ente só tributa o que a CF permite</li>
+    </ul>
+  </div>
+
+  <div class="box bx-az">
+    <div class="bx-title">📖 Base Legal — Art. 6º do CTN</div>
+    <p>"A atribuição constitucional de competência tributária compreende a competência legislativa plena, ressalvadas as limitações contidas na Constituição Federal, nas Constituições dos Estados e nas Leis Orgânicas do DF e dos Municípios."</p>
+  </div>
+
+  <div class="alert a-peg">
+    <span class="alert-icon">⚠️</span>
+    <p><strong>NÃO CONFUNDA:</strong> <strong>Competência Tributária</strong> (poder de criar o tributo) ≠ <strong>Capacidade Tributária Ativa</strong> (poder de cobrar/arrecadar). A competência é <strong>indelegável</strong>; a capacidade pode ser delegada!</p>
+  </div>
+</div>
+
+<div class="modulo" id="u4-legalidade">
+  <h3 class="sec">⚖️ Princípio da Legalidade <span class="bdg bdg-art">Art. 150, I, CF</span></h3>
+  <p class="txt">Nenhum tributo pode ser <strong>criado ou aumentado</strong> sem lei. É o princípio mais básico do Direito Tributário. Analogia: pense como a receita de um bolo — você não pode inventar ingredientes no meio do caminho. Está na lei, pode cobrar. Não está, não pode!</p>
+
+  <div class="box bx-az">
+    <div class="bx-title">📖 Art. 150, I, CF — Texto</div>
+    <p>"É vedado à União, aos Estados, ao DF e aos Municípios exigir ou aumentar tributo sem lei que o estabeleça."</p>
+  </div>
+
+  <h3 class="sec">🚨 Exceções ao Princípio da Legalidade <span class="bdg bdg-peg">Pegadinha</span></h3>
+  <p class="txt">Alguns impostos da União podem ter suas <strong>alíquotas</strong> alteradas por <strong>decreto do Poder Executivo</strong>, sem precisar de lei. São os chamados impostos <em>extrafiscais</em> (usados como instrumentos de política econômica):</p>
+
+  <div class="box bx-or">
+    <div class="bx-title">⚡ Exceções — Alíquotas por Decreto (art. 153, § 1º, CF)</div>
+    <ul>
+      <li>🌍 <strong>II</strong> — Imposto de Importação</li>
+      <li>✈️ <strong>IE</strong> — Imposto de Exportação</li>
+      <li>🏭 <strong>IPI</strong> — Imposto sobre Produtos Industrializados</li>
+      <li>💵 <strong>IOF</strong> — Imposto sobre Operações Financeiras</li>
+    </ul>
+    <p style="margin-top:10px;color:var(--laranja)">⚠️ <strong>Atenção:</strong> somente as <em>alíquotas</em> podem ser alteradas — não a base de cálculo, não os sujeitos, nada mais!</p>
+  </div>
+
+  <div class="macete">
+    <div class="mac-title">💡 Macete — "I² P O" (os 4 impostos extrafiscais)</div>
+    <p><strong>II</strong> · <strong>IE</strong> · <strong>IPI</strong> · <strong>IOF</strong> — "Dois I's, um P e um O" = têm alíquotas alteráveis por decreto</p>
+  </div>
+
+  <p class="txt">Há ainda o <strong>CIDE-Combustíveis</strong> e o <strong>ICMS-Combustíveis</strong> (por convênio do CONFAZ) que também são exceções, mas estas são mais cobradas em cursos avançados.</p>
+
+  <div class="alert a-prova">
+    <span class="alert-icon">🎯</span>
+    <p><strong>ATENÇÃO DE PROVA:</strong> A MP pode instituir <strong>imposto extraordinário de guerra</strong> (art. 154, II, CF). Alguns doutrinadores como Hugo de Brito entendem que isso não é exceção à legalidade, pois a MP precisa ser aprovada pelo Congresso. Fique atento ao enunciado da questão!</p>
+  </div>
+</div>
+
+<div class="modulo" id="u4-anterioridade">
+  <h3 class="sec">📅 Princípio da Anterioridade <span class="bdg bdg-art">Art. 150, III, "b", CF</span></h3>
+  <p class="txt">O Estado não pode cobrar tributo no <strong>mesmo exercício financeiro</strong> em que foi publicada a lei que o criou ou aumentou. É uma garantia de <em>previsibilidade</em> — o contribuinte precisa de tempo para se planejar.</p>
+
+  <div class="box bx-az">
+    <div class="bx-title">📅 Regra da Anterioridade do Exercício</div>
+    <p>Lei publicada em 2024 que cria ou aumenta tributo → só pode ser cobrada a partir de <strong>1º de janeiro de 2025</strong>.</p>
+  </div>
+
+  <h3 class="sec">🔄 Aplicação Imediata vs. Retroativa</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Tipo</th><th>Regra</th><th>Fundamento</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Aplicação imediata</strong></td><td>A lei vigente se aplica aos fatos geradores que ainda não ocorreram (pendentes)</td><td>Art. 105, CTN</td></tr>
+        <tr><td><strong>Irretroatividade</strong></td><td>A lei NÃO pode alcançar fatos geradores ocorridos ANTES de sua vigência</td><td>Art. 150, III, "a", CF + Art. 106, CTN</td></tr>
+        <tr><td><strong>Retroatividade benigna</strong></td><td>A lei pode retroagir se for mais benéfica ao infrator (aplica pena menor)</td><td>Art. 106, II, CTN</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box bx-or">
+    <div class="bx-title">📌 Lei Interpretativa — Exceção à Irretroatividade</div>
+    <p>A <strong>lei interpretativa</strong> retroage — ela não cria nova norma, apenas esclarece dúvida sobre lei já existente. Mas <strong>não pode aplicar penalidade</strong> pela infração dos dispositivos interpretados (art. 106, I, CTN).</p>
+  </div>
+
+  <p class="txt">Um exemplo prático: o Imposto de Renda (IRPF) tem fato gerador que se perfaz no dia 31/12 de cada ano. Se uma lei aumentar a alíquota do IR em novembro/2024, ela <strong>não</strong> pode ser aplicada ao IR de 2024 (cuja obrigação surge em 31/12/2024) — pois o fato gerador já estava em curso desde 1º de janeiro.</p>
+
+  <h3 class="sec">🚨 Exceções à Anterioridade do Exercício</h3>
+  <div class="box bx-rm">
+    <div class="bx-title">🚫 Tributos que NÃO respeitam a anterioridade do exercício</div>
+    <ul>
+      <li>💣 <strong>II, IE, IPI, IOF</strong> — extrafiscais (política econômica imediata)</li>
+      <li>🚨 <strong>Empréstimo Compulsório</strong> em caso de guerra externa ou calamidade (art. 148, I, CF)</li>
+      <li>⚔️ <strong>Imposto Extraordinário de Guerra</strong> (art. 154, II, CF)</li>
+      <li>💊 <strong>CIDE-Combustíveis</strong> (restabelecimento de alíquotas, art. 177, § 4º, CF)</li>
+      <li>⛽ <strong>ICMS-Combustíveis</strong> (restabelecimento, art. 155, § 4º, CF)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="modulo" id="u4-noventena">
+  <h3 class="sec">📆 Noventena — Anterioridade de 90 dias <span class="bdg bdg-art">Art. 150, III, "c", CF</span></h3>
+  <p class="txt">Criada pela <strong>EC 42/2003</strong>, a noventena determina que, além de esperar o próximo exercício financeiro, o tributo só pode ser cobrado após <strong>90 dias</strong> da publicação da lei. É uma dupla proteção ao contribuinte.</p>
+
+  <div class="box bx-vd">
+    <div class="bx-title">💡 Como funciona na prática</div>
+    <p>Lei publicada em <strong>20 de outubro de 2024</strong> → deve aguardar:</p>
+    <ul>
+      <li>✅ 1º de janeiro de 2025 (anterioridade do exercício) <strong>E</strong></li>
+      <li>✅ 90 dias após outubro → <strong>18 de janeiro de 2025</strong></li>
+      <li>🔑 Prevalece a data <strong>mais favorável ao contribuinte</strong> (18 de janeiro)</li>
+    </ul>
+  </div>
+
+  <h3 class="sec">⚖️ Tabela Completa — Anterioridade vs. Noventena</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Tributo</th><th>Anterioridade</th><th>Noventena</th></tr></thead>
+      <tbody>
+        <tr><td>II, IE</td><td style="color:var(--verm)">Exceção ❌</td><td style="color:var(--verm)">Exceção ❌</td></tr>
+        <tr><td>IPI</td><td style="color:var(--verm)">Exceção ❌</td><td style="color:var(--verde)">Aplica ✅</td></tr>
+        <tr><td>IOF</td><td style="color:var(--verm)">Exceção ❌</td><td style="color:var(--verm)">Exceção ❌</td></tr>
+        <tr><td>IR</td><td style="color:var(--verde)">Aplica ✅</td><td style="color:var(--verm)">Exceção ❌</td></tr>
+        <tr><td>IPTU / IPVA (base de cálculo)</td><td style="color:var(--verde)">Aplica ✅</td><td style="color:var(--verm)">Exceção ❌</td></tr>
+        <tr><td>Demais tributos (ICMS, ISS, etc.)</td><td style="color:var(--verde)">Aplica ✅</td><td style="color:var(--verde)">Aplica ✅</td></tr>
+        <tr><td>Empréstimo Compulsório (guerra/calamidade)</td><td style="color:var(--verm)">Exceção ❌</td><td style="color:var(--verm)">Exceção ❌</td></tr>
+        <tr><td>Contribuições Previdenciárias</td><td style="color:var(--verm)">Exceção ❌</td><td style="color:var(--verde)">Aplica ✅</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="macete">
+    <div class="mac-title">💡 Macete para decorar as Exceções</div>
+    <p><strong>Não respeitam NENHUMA anterioridade:</strong> II · IE · IOF · Empréstimo Compulsório (guerra/calamidade) · Imposto Extraordinário de Guerra</p>
+    <p style="margin-top:6px"><strong>Respeitam só a Noventena (não o exercício):</strong> IPI · Contribuições Previdenciárias · CIDE-Combustíveis · ICMS-Combustíveis</p>
+    <p style="margin-top:6px"><strong>Respeitam só o Exercício (não a noventena):</strong> IR · Base de cálculo do IPTU e IPVA</p>
+  </div>
+</div>
+
+<div class="modulo" id="u4-trafego">
+  <h3 class="sec">🛣️ Princípio da Liberdade de Tráfego <span class="bdg bdg-art">Art. 150, V, CF</span></h3>
+  <p class="txt">O Estado <strong>não pode criar tributo</strong> cuja hipótese de incidência seja, pura e simplesmente, a <strong>circulação de pessoas ou mercadorias entre municípios ou estados</strong>. O motivo: não pode "cobrar pedágio" para circular dentro do Brasil!</p>
+
+  <div class="box bx-vd">
+    <div class="bx-title">✅ O que este princípio protege</div>
+    <p>Garante a unidade econômica nacional — você não pode criar barreira fiscal para impedir o livre comércio interno entre estados e municípios.</p>
+  </div>
+
+  <div class="alert a-peg">
+    <span class="alert-icon">⚠️</span>
+    <p><strong>PEGADINHAS CLÁSSICAS:</strong></p>
+    <p>1. <strong>Pedágio</strong> — NÃO é tributo, é tarifa/preço público pela utilização de via conservada pelo Poder Público. Não conflita com este princípio.</p>
+    <p>2. <strong>ICMS nas operações interestaduais</strong> — a incidência do ICMS em operações entre estados é constitucional. O tributo não incide <em>por causa</em> do trajeto interestadual, mas pela <em>circulação de mercadorias</em>. São coisas diferentes!</p>
+  </div>
+</div>
+
+<div class="modulo" id="u4-imunidade">
+  <h3 class="sec">🛡️ Imunidades Tributárias</h3>
+  <p class="txt">A <strong>imunidade tributária</strong> é o obstáculo decorrente de norma constitucional que impede a incidência do tributo. É uma limitação de competência — o ente federado simplesmente <em>não tem o poder</em> de tributar esses casos.</p>
+
+  <div class="box bx-rx">
+    <div class="bx-title">🔑 Definição Técnica</div>
+    <p>Imunidade é a <strong>hipótese de não incidência constitucionalmente qualificada</strong>. O que é imune não pode ser tributado porque o tributo simplesmente não será instituído — é limitação de competência tributária.</p>
+  </div>
+
+  <h3 class="sec">⚖️ Imunidade × Isenção × Não Incidência</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Conceito</th><th>Onde está?</th><th>Natureza</th><th>Pode ser revogada?</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Imunidade</strong></td>
+          <td>Constituição Federal</td>
+          <td>Limitação de competência — o Estado nem pode criar o tributo</td>
+          <td>Não (só por EC que não viole cláusula pétrea)</td>
+        </tr>
+        <tr>
+          <td><strong>Isenção</strong></td>
+          <td>Lei (ordinária ou complementar)</td>
+          <td>Dispensa legal do pagamento — o tributo existe, mas a lei dispensa</td>
+          <td>Sim, por lei posterior (regra geral)</td>
+        </tr>
+        <tr>
+          <td><strong>Não Incidência</strong></td>
+          <td>Ausência de lei / situação fora do campo tributável</td>
+          <td>O fato simplesmente não está no campo de incidência</td>
+          <td>Não se aplica — simplesmente não há tributação</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="macete">
+    <div class="mac-title">💡 Macete para não confundir</div>
+    <p>🏛️ <strong>Imunidade</strong> = "A Constituição diz: você NEM PODE cobrar!"</p>
+    <p>📋 <strong>Isenção</strong> = "A lei diz: pode cobrar, mas desta vez não precisa pagar."</p>
+    <p>🌫️ <strong>Não incidência</strong> = "A lei nem previu esse caso. Não tem tributo por falta de previsão."</p>
+  </div>
+
+  <h3 class="sec">📋 Principais Imunidades Constitucionais</h3>
+  <div class="box bx-vd">
+    <div class="bx-title">🛡️ Imunidades Recíprocas — Art. 150, VI, "a", CF</div>
+    <p>União, Estados, DF e Municípios <strong>não podem cobrar impostos uns dos outros</strong>. Razão: evitar que um ente federado use tributos para inviabilizar os demais (protege o pacto federativo).</p>
+  </div>
+  <div class="box bx-az">
+    <div class="bx-title">⛪ Imunidade Religiosa — Art. 150, VI, "b", CF</div>
+    <p>Templos de qualquer culto são imunes a impostos sobre patrimônio, renda e serviços. <strong>Qualquer religião</strong> (católica, protestante, espírita, umbanda, etc.). Discute-se se o imóvel usado como residência do padre/pastor é imune — o STF entende que sim, se a renda é revertida para as finalidades religiosas.</p>
+  </div>
+  <div class="box bx-rx">
+    <div class="bx-title">📰 Imunidade Cultural — Art. 150, VI, "d", CF</div>
+    <p>Imunidade sobre livros, jornais, periódicos e o papel destinado a sua impressão. Finalidade: garantir a <strong>liberdade de imprensa e o acesso à informação</strong>. O STF ampliou para incluir e-books e audiobooks.</p>
+  </div>
+  <div class="box bx-or">
+    <div class="bx-title">📚 Imunidade de Partidos, Sindicatos e Entidades — Art. 150, VI, "c", CF</div>
+    <p>Partidos políticos (e suas fundações), entidades sindicais de trabalhadores, instituições de educação e assistência social sem fins lucrativos têm imunidade — desde que cumpram os requisitos do art. 14 do CTN.</p>
+  </div>
+</div>
+
+<div class="modulo" id="u4-tabela">
+  <h3 class="sec">📊 Mapa Mental — Princípios Tributários</h3>
+  <div class="mapa">
+    <div class="raiz">LIMITAÇÕES AO PODER DE TRIBUTAR</div>
+    <div class="l1">├── ⚖️ LEGALIDADE (art. 150, I, CF)</div>
+    <div class="l2">│   ├── tributo só por lei</div>
+    <div class="l2">│   ├── exceções: II, IE, IPI, IOF (alíquotas por decreto)</div>
+    <div class="l2">│   └── MP: pode tratar de tributo (exceto matéria de LC)</div>
+    <div class="l1">├── 📅 ANTERIORIDADE (art. 150, III, "b", CF)</div>
+    <div class="l2">│   ├── lei de um exercício → cobra no próximo</div>
+    <div class="l2">│   ├── exceções: II, IE, IPI, IOF, Emp.Comp.(guerra), IEGu</div>
+    <div class="l2">│   └── IR e IPTU/IPVA (bc): respeita exercício, não noventena</div>
+    <div class="l1">├── 📆 NOVENTENA (art. 150, III, "c", CF) — EC 42/2003</div>
+    <div class="l2">│   ├── 90 dias após publicação</div>
+    <div class="l2">│   ├── aplica ao IPI e Contrib. Previdenciárias</div>
+    <div class="l2">│   └── exceção: IR e base de cálculo IPTU/IPVA</div>
+    <div class="l1">├── 🛣️ LIBERDADE DE TRÁFEGO (art. 150, V, CF)</div>
+    <div class="l2">│   ├── proíbe tributo pela mera circulação interestadual/municipal</div>
+    <div class="l2">│   └── pedágio ≠ tributo (é tarifa); ICMS interestadual é válido</div>
+    <div class="l1">└── 🛡️ IMUNIDADES (art. 150, VI, CF)</div>
+    <div class="l2">    ├── "a" → recíproca (entre entes federativos)</div>
+    <div class="l2">    ├── "b" → religiosa (templos)</div>
+    <div class="l2">    ├── "c" → partidos, sindicatos, entidades educac./assist.</div>
+    <div class="l2">    └── "d" → cultural (livros, jornais, periódicos, papel)</div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══════════════════════════════════════════════
+   QUESTÕES COMENTADAS
+══════════════════════════════════════════════ -->
+<div class="modulo" id="questoes">
+  <div class="mod-header bg-laranja">
+    <div class="mod-num">Fixação</div>
+    <h2>🏆 Questões Estilo Concurso</h2>
+    <p>Clique na alternativa para ver o gabarito comentado.</p>
+  </div>
+  <div id="qs-area"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+   CASOS PRÁTICOS
+══════════════════════════════════════════════ -->
+<div class="modulo" id="casos">
+  <div class="mod-header bg-teal">
+    <div class="mod-num">Prática</div>
+    <h2>💼 Casos Práticos</h2>
+    <p>Situações reais — identifique o princípio e aplique o raciocínio jurídico correto.</p>
+  </div>
+
+  <div class="caso">
+    <div class="caso-title">📌 Caso 1 — Governo Federal e o Aumento Surpresa</div>
+    <div class="caso-body">Em setembro de 2024, o Governo Federal publicou lei ordinária aumentando a alíquota do Imposto de Renda das pessoas físicas de 27,5% para 30%. O governo queria cobrar o novo percentual já no imposto devido em março de 2025 (referente ao ano-calendário de 2024). Isso é possível?</div>
+    <div class="caso-resp"><strong>Raciocínio:</strong> Há dois princípios em conflito. Pela <strong>anterioridade do exercício</strong> (art. 150, III, "b"), a lei publicada em 2024 só vale a partir de 01/01/2025 — aparentemente ok. Mas o IR <strong>é exceção à noventena</strong>, porém <strong>respeita o exercício</strong>. O problema é que o fato gerador do IR se aperfeiçoa em 31/12 do ano-calendário. A lei publicada em setembro/2024, embora vigente em 2025, retroage ao fato gerador de 31/12/2024 — o que viola a <strong>irretroatividade</strong> (art. 150, III, "a"). <strong>Não é possível!</strong> A lei publicada em set/2024 só pode valer para o IR de 2025 (fato gerador em 31/12/2025, DIRPF entregue em 2026).</div>
+  </div>
+
+  <div class="caso">
+    <div class="caso-title">📌 Caso 2 — Igreja Universal e Estacionamento</div>
+    <div class="caso-body">A Igreja Universal do Reino de Deus possui um imóvel onde funciona um estacionamento pago para o público em geral, gerando receita. O município pode cobrar IPTU desse imóvel?</div>
+    <div class="caso-resp"><strong>Raciocínio:</strong> A imunidade religiosa (art. 150, VI, "b") protege o patrimônio dos templos de qualquer culto. Porém, o STF entende que a imunidade abrange apenas os bens <strong>relacionados com as finalidades essenciais</strong> da entidade religiosa. Um estacionamento comercial, com fins lucrativos e aberto ao público, não está vinculado à finalidade religiosa. Se a renda não for integralmente revertida às atividades religiosas, o município <strong>pode cobrar IPTU</strong> desse imóvel.</div>
+  </div>
+
+  <div class="caso">
+    <div class="caso-title">📌 Caso 3 — Município cria "taxa de pedágio" interestadual</div>
+    <div class="caso-body">Um município decide criar uma "taxa de circulação" cobrada de todos os caminhões que atravessam seu território transportando mercadorias de outros estados. A medida é constitucional?</div>
+    <div class="caso-resp"><strong>Raciocínio:</strong> Não! Isso viola o <strong>Princípio da Liberdade de Tráfego</strong> (art. 150, V, CF). O tributo não pode ter como hipótese de incidência a mera circulação de mercadorias em virtude de serem interestaduais ou intermunicipais. A medida é <strong>inconstitucional</strong>. Além disso, o município não tem competência para criar tributo sobre circulação de mercadorias (isso seria ICMS, de competência estadual).</div>
+  </div>
+
+  <div class="caso">
+    <div class="caso-title">📌 Caso 4 — MP e o IPI</div>
+    <div class="caso-body">Em situação de retração econômica grave, o Presidente da República edita Medida Provisória reduzindo a alíquota do IPI de automóveis para estimular as vendas. A MP é válida e quando entra em vigor?</div>
+    <div class="caso-resp"><strong>Raciocínio:</strong> Sim, é válida! O IPI é exceção ao princípio da anterioridade do exercício — suas alíquotas podem ser alteradas por decreto do Executivo, e com maior razão por MP. Quanto à vigência: o IPI <strong>respeita a noventena</strong> (90 dias), mas neste caso é uma <strong>redução</strong>, o que beneficia o contribuinte. A anterioridade e a noventena protegem o contribuinte de aumentos, não de reduções. A MP de redução entra em vigor <strong>imediatamente</strong>.</div>
+  </div>
+
+  <div class="caso">
+    <div class="caso-title">📌 Caso 5 — CTN e a Lei Ordinária</div>
+    <div class="caso-body">O Congresso Nacional aprova lei ordinária alterando as regras gerais de prescrição do crédito tributário, previstas no CTN. A alteração é válida?</div>
+    <div class="caso-resp"><strong>Raciocínio:</strong> Não! O CTN, embora seja formalmente uma lei ordinária (Lei 5.172/1966), foi recepcionado pela CF/88 como <strong>lei complementar</strong>, pois trata de normas gerais de Direito Tributário (matéria reservada à LC pelo art. 146, III, CF). Portanto, <strong>somente lei complementar pode alterar o CTN</strong>. A lei ordinária é formalmente inconstitucional neste ponto.</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+   RESUMÃO FINAL
+══════════════════════════════════════════════ -->
+<div class="modulo" id="resumao">
+  <div class="resumao">
+    <h2>⚡ Resumão Final — Revisão de Véspera</h2>
+    <ul>
+      <li>Art. 96 CTN: legislação tributária em sentido amplo (CF, LC, LO, LD, MP, Tratados, Decretos)</li>
+      <li>O CTN é lei ordinária, mas só pode ser alterado por Lei Complementar (recepção pela CF/88)</li>
+      <li>Lei Complementar = maioria absoluta | Lei Ordinária = maioria simples</li>
+      <li>Lei Delegada tem campo restritíssimo: não trata de LC, Emp. Compulsório, comp. residual da União</li>
+      <li>MP: não pode tratar de matéria de LC; prazo 60+60 dias; relevância E urgência</li>
+      <li>Tratados Internacionais: CTN diz que revogam lei interna; STF diz que lei posterior pode prevalecer</li>
+      <li>Competência tributária = indelegável | Capacidade tributária ativa = delegável</li>
+      <li>Legalidade: tributo só por lei. Exceção (alíquotas por decreto): II, IE, IPI, IOF</li>
+      <li>Anterioridade do exercício: lei publicada em 2024 → cobra em 2025 (exceções: II, IE, IOF, etc.)</li>
+      <li>Noventena (90 dias): aplica ao IPI, Contrib. Previdenciárias. Exceção: IR, IPTU/IPVA (base calc.)</li>
+      <li>Liberdade de Tráfego: proíbe tributo sobre mera circulação interestadual/municipal</li>
+      <li>Imunidade ≠ Isenção ≠ Não Incidência: imunidade está na CF e é indelegável</li>
+      <li>Imunidades: recíproca (entre entes), religiosa, partidos/sindicatos/entidades, cultural (livros)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+   FLASHCARDS
+══════════════════════════════════════════════ -->
+<div class="modulo" id="flashcards">
+  <div class="mod-header bg-slate">
+    <div class="mod-num">Memorização</div>
+    <h2>🗂️ Flashcards de Revisão</h2>
+    <p>Clique no card para revelar a resposta. Teste seus conhecimentos!</p>
+  </div>
+  <p class="flash-hint">👆 Clique no card para virar</p>
+  <div class="flashgrid" id="flash-area"></div>
+</div>
+
+<div class="sep"></div>
+<p style="text-align:center;font-size:.75rem;color:var(--text3);padding:20px 0">
+  ⚖️ Material criado por <strong style="color:var(--azul)">Andrews Curriel</strong> · Direito Tributário — Unidades III e IV · Uso exclusivo para estudo
+</p>
+
+  </div><!-- /content -->
+</main>
+</div><!-- /shell -->
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ═══ TEMA ═══
+function toggleTheme(){
+  const h=document.documentElement;
+  const isDark=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme',isDark?'light':'dark');
+  document.getElementById('themeBtn').textContent=isDark?'🌙 Modo Noite':'☀️ Modo Dia';
+  localStorage.setItem('theme',isDark?'light':'dark');
+}
+(function(){
+  const t=localStorage.getItem('theme');
+  if(t){
+    document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.getElementById('themeBtn').textContent='☀️ Modo Dia';
+  }
+})();
+
+// ═══ NAVEGAÇÃO ═══
+function ir(id){
+  const el=document.getElementById(id);
+  if(el){el.scrollIntoView({behavior:'smooth',block:'start'})}
+  document.querySelectorAll('.nav-a').forEach(n=>n.classList.remove('on'));
+  const m=document.querySelector(`.nav-a[onclick*="${id}"]`);
+  if(m)m.classList.add('on');
+}
+
+// ═══ PROGRESSO ═══
+window.addEventListener('scroll',()=>{
+  const t=document.documentElement.scrollTop;
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('pgbar').style.width=(t/h*100)+'%';
+});
+
+// ═══ SCROLL SPY ═══
+const secIds=['u3-inicio','u3-conceito','u3-lc','u3-lo','u3-ld','u3-tratados','u3-mp','u3-tabela','u4-inicio','u4-legalidade','u4-anterioridade','u4-noventena','u4-trafego','u4-imunidade','u4-tabela','questoes','casos','resumao','flashcards'];
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.nav-a').forEach(n=>n.classList.remove('on'));
+      const m=document.querySelector(`.nav-a[onclick*="${e.target.id}"]`);
+      if(m)m.classList.add('on');
+    }
+  });
+},{threshold:.2});
+secIds.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});
+
+// ═══ QUESTÕES ═══
+const QS=[
+  {n:1,b:'FCC',e:'Segundo o CTN, o conceito de legislação tributária:',alts:['A) Restringe-se às leis em sentido estrito aprovadas pelo Poder Legislativo.','B) Abrange as leis, tratados e convenções internacionais, decretos e normas complementares que versem sobre tributos.','C) Inclui somente leis complementares, por serem as únicas com força para tratar de tributos.','D) É equivalente ao conceito de lei ordinária, pois é ela que cria os tributos.'],gab:1,com:'Art. 96 do CTN: o conceito de legislação tributária é amplo. Inclui leis, tratados e convenções internacionais, decretos e normas complementares sobre tributos. (A) está errada por restringir; (C) é falsa — lei ordinária também integra; (D) confunde conceitos.'},
+  {n:2,b:'CESPE',e:'Sobre o CTN, é correto afirmar que:',alts:['A) É uma lei complementar que só pode ser alterada por outra lei complementar.','B) É formalmente uma lei ordinária, mas materialmente só pode ser alterado por lei complementar.','C) Pode ser modificado por medida provisória, por se tratar de legislação tributária urgente.','D) Foi criado pela Constituição Federal de 1988 como lei complementar.'],gab:1,com:'O CTN (Lei 5.172/1966) é formalmente uma lei ordinária (editada antes da CF/88), mas materialmente recepcionado como lei complementar pela CF/88. Por isso, só pode ser alterado por LC. MP não pode alterar matéria de LC. Foi criado em 1966, não pela CF/88.'},
+  {n:3,b:'VUNESP',e:'O Presidente da República pode, por decreto, alterar alíquotas do(a):',alts:['A) ISS — Imposto sobre Serviços','B) ICMS — Imposto sobre Circulação de Mercadorias','C) IPI — Imposto sobre Produtos Industrializados','D) IPTU — Imposto Predial e Territorial Urbano'],gab:2,com:'O IPI é um dos impostos extrafiscais cujas alíquotas podem ser alteradas por decreto do Executivo (art. 153, § 1º, CF). ISS é municipal (LC), ICMS é estadual (LC e convênio CONFAZ para questões de alíquota), IPTU é municipal. Apenas II, IE, IPI e IOF têm essa previsão constitucional.'},
+  {n:4,b:'FGV',e:'Lei publicada em 15 de outubro de 2024 aumenta a alíquota do ISS. A partir de quando pode ser cobrada?',alts:['A) Imediatamente após a publicação, pois o ISS é imposto extrafiscal.','B) A partir de 1º de janeiro de 2025 somente.','C) A partir de 1º de janeiro de 2025 e desde que decorridos 90 dias da publicação, prevalecendo o prazo mais favorável ao contribuinte.','D) A partir de 14 de janeiro de 2025, pois são necessários apenas 90 dias.'],gab:2,com:'O ISS respeita TANTO a anterioridade do exercício (espera 1º/01/2025) QUANTO a noventena (90 dias após outubro = ~14/01/2025). Como ambas se aplicam, prevalece a data que ocorrer por último, que é a mais favorável ao contribuinte: 14 de janeiro de 2025.'},
+  {n:5,b:'CESPE',e:'A imunidade tributária difere da isenção porque:',alts:['A) A isenção está prevista na Constituição, enquanto a imunidade está na lei ordinária.','B) A imunidade é uma limitação de competência tributária prevista na CF; a isenção é uma dispensa legal do pagamento.','C) A imunidade pode ser revogada por lei ordinária posterior; a isenção é permanente.','D) Ambas têm a mesma natureza jurídica, diferindo apenas quanto ao ente federativo que as concede.'],gab:1,com:'A imunidade está na CF e representa limitação de competência — o Estado nem pode criar o tributo nesses casos. A isenção está na lei (ordinária ou complementar) e representa dispensa do pagamento de tributo que, em tese, poderia ser cobrado. Regras de revogação são opostas ao que diz a alternativa (C).'},
+  {n:6,b:'FCC',e:'Sobre o Princípio da Liberdade de Tráfego, é incorreto afirmar:',alts:['A) Proíbe a criação de tributo que tenha como hipótese de incidência a mera circulação interestadual.','B) O pedágio cobrado pela utilização de rodovias é um tributo proibido por este princípio.','C) O ICMS nas operações interestaduais é constitucional e não viola este princípio.','D) Tem previsão no art. 150, V, da Constituição Federal.'],gab:1,com:'A questão pede o que está INCORRETO. O pedágio NÃO é tributo — é tarifa/preço público pela utilização de via conservada. Portanto, não é proibido pelo princípio da liberdade de tráfego. Todas as demais alternativas estão corretas.'},
+  {n:7,b:'VUNESP',e:'Medidas Provisórias em matéria tributária:',alts:['A) Nunca podem criar ou modificar tributos.','B) Podem criar tributos, mas não podem tratar de matérias reservadas a Lei Complementar.','C) Podem criar qualquer tributo, inclusive os que exigem Lei Complementar.','D) Somente podem reduzir alíquotas, nunca aumentá-las.'],gab:1,com:'MP pode criar ou aumentar tributos (com as limitações constitucionais), MAS não pode tratar de matérias reservadas a LC (normas gerais de Dir. Tributário, conflitos de competência, etc.). As alternativas (A), (C) e (D) são claramente incorretas pelo texto constitucional (art. 62, § 1º, CF).'},
+  {n:8,b:'CESPE',e:'Sobre os Tratados Internacionais em matéria tributária, segundo o STF:',alts:['A) Prevalecem sempre sobre a lei interna, anterior ou posterior.','B) O Congresso Nacional pode editar lei posterior contrária ao tratado, que prevalecerá no plano interno.','C) Os tratados são recepcionados como lei complementar, revogando toda legislação contrária.','D) Somente tratados sobre IPI e IOF têm efeitos na legislação tributária interna.'],gab:1,com:'Embora o art. 98 do CTN diga que tratados revogam a lei interna, o STF entende que o Congresso tem autonomia para editar lei interna posterior, que pode prevalecer no plano doméstico. Nesse caso, o Brasil descumpre o tratado internacionalmente, e o prejudicado pode buscar indenização da União.'},
+];
+
+const qa=document.getElementById('qs-area');
+QS.forEach(q=>{
+  const div=document.createElement('div');
+  div.className='questao';
+  const alts=q.alts.map((a,i)=>`<span class="q-alt" onclick="resp(this,${q.n-1},${i})">${a}</span>`).join('');
+  div.innerHTML=`<div class="q-num">Questão ${q.n} <span class="q-banca">${q.b}</span></div><div class="q-enunc">${q.e}</div>${alts}<div class="q-gab" id="qg${q.n-1}"><strong>✅ Gabarito: ${q.alts[q.gab]}</strong><br><br>💡 ${q.com}</div>`;
+  qa.appendChild(div);
+});
+function resp(el,qi,ai){
+  const q=QS[qi];
+  const parent=el.parentElement;
+  if(parent.querySelector('.correta'))return;
+  parent.querySelectorAll('.q-alt').forEach((a,i)=>{
+    if(i===q.gab)a.classList.add('correta');
+    else if(i===ai)a.classList.add('errada');
+  });
+  document.getElementById('qg'+qi).classList.add('show');
+}
+
+// ═══ FLASHCARDS ═══
+const FLS=[
+  {p:'O que é "legislação tributária" segundo o art. 96 do CTN?',r:'É o conjunto amplo de normas: leis, tratados internacionais, decretos e normas complementares que versem sobre tributos — não apenas a "lei" em sentido estrito.'},
+  {p:'Por que o CTN só pode ser alterado por Lei Complementar, se é formalmente uma lei ordinária?',r:'Porque a CF/88 reservou as matérias nele contidas (normas gerais de Dir. Tributário) à Lei Complementar. O CTN foi recepcionado com status material de LC.'},
+  {p:'Quais são os 4 impostos com alíquotas alteráveis por decreto (exceções à legalidade)?',r:'II (Importação), IE (Exportação), IPI (Produtos Industrializados) e IOF (Operações Financeiras) — macete: "I² P O"'},
+  {p:'Qual é a diferença entre anterioridade do exercício e noventena?',r:'Anterioridade do exercício = aguarda o próximo ano fiscal (1º/jan). Noventena = aguarda 90 dias da publicação. São princípios cumulativos para a maioria dos tributos; prevalece o prazo mais favorável ao contribuinte.'},
+  {p:'Imunidade × Isenção: qual está na CF e qual está na lei?',r:'IMUNIDADE está na Constituição Federal e limita a competência. ISENÇÃO está na lei (ordinária ou complementar) e dispensa o pagamento de tributo que poderia ser cobrado.'},
+  {p:'O pedágio viola o Princípio da Liberdade de Tráfego?',r:'NÃO. O pedágio é tarifa/preço público pela utilização de via conservada — não é tributo. O princípio proíbe tributo cuja hipótese seja a mera circulação interestadual/intermunicipal.'},
+  {p:'Medida Provisória pode tratar de normas gerais de Direito Tributário?',r:'NÃO. MP não pode tratar de matérias reservadas a Lei Complementar (art. 62, § 1º, III, CF). Normas gerais de Dir. Tributário exigem LC.'},
+  {p:'Qual o entendimento do STF sobre tratados internacionais vs. lei interna posterior?',r:'O STF entende que o Congresso pode editar lei interna posterior contrária ao tratado, que prevalece no plano doméstico (autonomia do parlamento). Diferente do art. 98 do CTN, que diz que o tratado revoga a lei interna.'},
+  {p:'Qual tributo respeita a noventena mas NÃO respeita a anterioridade do exercício?',r:'O IPI. Também as Contribuições Previdenciárias (art. 195, § 6º, CF) respeitam a noventena mas não a anterioridade do exercício.'},
+  {p:'Lei Delegada pode criar empréstimo compulsório?',r:'NÃO. Empréstimo Compulsório exige Lei Complementar (art. 148, CF). Lei Delegada não pode tratar de matérias reservadas à LC.'},
+];
+
+const fa=document.getElementById('flash-area');
+FLS.forEach(f=>{
+  const d=document.createElement('div');
+  d.className='flash';
+  d.innerHTML=`<div class="f-front"><div class="lbl">❓ Pergunta</div><p>${f.p}</p></div><div class="f-back"><div class="lbl">✅ Resposta</div><p>${f.r}</p></div>`;
+  d.onclick=()=>d.classList.toggle('open');
+  fa.appendChild(d);
+});
+</script>
+</body>
+</html>
